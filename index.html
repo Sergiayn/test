@@ -5,11 +5,13 @@
     
     <script async
             src="https://pay.google.com/gp/p/js/pay.js"
-            onload="console.log('TODO: add onload function')">
+            onload="start_tranzzo()">
     </script>
     
     
     <script>
+      function start_tranzzo(){
+        console.log('TODO: add onload function')
         const posId = 'b06b1ccd-2eab-4e82-a17b-cf4fa3439741'
         const paymentsClient = new google.payments.api.PaymentsClient({environment: 'TEST'});
         const tokenizationSpecification = {
@@ -19,6 +21,7 @@
                 'gatewayMerchantId': posId
               }
         };
+      }
     </script>
     
 
