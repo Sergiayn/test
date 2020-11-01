@@ -22,10 +22,20 @@
                 'gatewayMerchantId': posId
               }
         };
-        const button = paymentsClient.createButton({onClick: () => console.log('TODO: click handler')});
-        document.getElementById('container').appendChild(button);
         
-        console.log('paymentsClient', paymentsClient)
+        paymentsClient.isReadyToPay(isReadyToPayRequest)
+        .then(function(response) {
+          if (response.result) {
+            const button = paymentsClient.createButton({onClick: () => console.log('TODO: click handler')});
+            document.getElementById('container').appendChild(button);
+          }
+        })
+        .catch(function(err) {
+          // show error in developer console for debugging
+          console.error(err);
+        });
+
+  
       }
     </script>
     
