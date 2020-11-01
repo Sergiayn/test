@@ -12,9 +12,14 @@
     
     <script>
       function start_tranzzo(){
-        console.log('TODO: add onload function')
+        //1
+        const baseRequest = {
+          apiVersion: 2,
+          apiVersionMinor: 0
+        };
+        
+        //2
         const posId = 'b06b1ccd-2eab-4e82-a17b-cf4fa3439741'
-        const paymentsClient = new google.payments.api.PaymentsClient({environment: 'TEST'});
         const tokenizationSpecification = {
               type: 'PAYMENT_GATEWAY',
               parameters: {
@@ -22,6 +27,26 @@
                 'gatewayMerchantId': posId
               }
         };
+        
+        //3
+        const allowedCardNetworks = ["AMEX", "DISCOVER", "INTERAC", "JCB", "MASTERCARD", "VISA"];
+        const allowedCardAuthMethods = ["PAN_ONLY", "CRYPTOGRAM_3DS"];
+        
+        //4
+        const baseCardPaymentMethod = {
+          type: 'CARD',
+          parameters: {
+            allowedAuthMethods: allowedCardAuthMethods,
+            allowedCardNetworks: allowedCardNetworks
+          }
+        };
+        const cardPaymentMethod = Object.assign(
+          {tokenizationSpecification: tokenizationSpecification},
+          baseCardPaymentMethod
+        );
+        
+        
+        const paymentsClient = new google.payments.api.PaymentsClient({environment: 'TEST'});
         
         paymentsClient.isReadyToPay(isReadyToPayRequest)
         .then(function(response) {
