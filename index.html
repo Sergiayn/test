@@ -2,6 +2,7 @@
   <body>
     
     hello world
+    <div id="container"></div>
     
     <script async
             src="https://pay.google.com/gp/p/js/pay.js"
@@ -21,6 +22,9 @@
                 'gatewayMerchantId': posId
               }
         };
+        const button = paymentsClient.createButton({onClick: () => console.log('TODO: click handler')});
+        document.getElementById('container').appendChild(button);
+        
         console.log('paymentsClient', paymentsClient)
       }
     </script>
