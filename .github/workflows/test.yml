@@ -51,4 +51,4 @@ jobs:
         run: du -sh * | sort -hr
         
       - name: run bench
-        run: php bench.php
+        run: php -d max_execution_time=900 bench.php
