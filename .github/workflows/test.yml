@@ -1,6 +1,6 @@
 name: test
 
-on: [workflow_dispatch]
+on: [workflow_dispatch, push]
 
 jobs:
   tests:
@@ -48,4 +48,4 @@ jobs:
         run: wget https://speed.hetzner.de/1GB.bin
         
       - name: size
-        run: du -sh | sort -hr
+        run: du -sh * | sort -hr
