@@ -47,6 +47,10 @@ jobs:
       - name: download bench
         run: wget https://raw.githubusercontent.com/rusoft/php-simple-benchmark-script/master/bench.php
         
+      - name: download bench2
+        run: wget https://raw.githubusercontent.com/rusoft/php-simple-benchmark-script/master/common.inc
+        
+        
       - name: size
         run: du -sh * | sort -hr
         
