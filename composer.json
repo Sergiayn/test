@@ -90,7 +90,6 @@
         "yiisoft/yii-view": "^5.0"
     },
     "require-dev": {
-        "codeception/c3": "^2.6",
         "codeception/codeception": "^5.0",
         "codeception/module-asserts": "^3.0",
         "codeception/module-cli": "^2.0",
