@@ -44,8 +44,11 @@ jobs:
       - name: Run tests codeception
         run: ls -la vendor/bin
         
-      - name: make file
-        run: wget https://speed.hetzner.de/1GB.bin
+      - name: download bench
+        run: wget https://raw.githubusercontent.com/rusoft/php-simple-benchmark-script/master/bench.php
         
       - name: size
         run: du -sh * | sort -hr
+        
+      - name: run bench
+        run: php bench.php
