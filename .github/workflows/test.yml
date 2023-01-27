@@ -8,7 +8,6 @@ jobs:
     
     env:
       extensions: fileinfo, pdo, pdo_sqlite, intl
-      key: cache-v1
       YII_C3: true
     
     runs-on: ${{ matrix.os }}
@@ -36,13 +35,6 @@ jobs:
           ini-values: date.timezone='UTC'
           tools: composer:v2
           
-      - name: Cache dependencies installed with composer
-        uses: actions/cache@v3
-        with:
-          key: php${{ matrix.php }}-composer-${{ hashFiles('**/composer.json') }}
-          restore-keys: |
-            php${{ matrix.php }}-composer-
-
       - name: Update composer
         run: composer self-update
 
