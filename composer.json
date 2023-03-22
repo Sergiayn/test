@@ -4,7 +4,7 @@
     "description": "Yii Framework Project Demo",
     "keywords": [
         "yii",
-        "app"
+        "app" 
     ],
     "homepage": "https://github.com/yiisoft/demo",
     "license": "BSD-3-Clause",
