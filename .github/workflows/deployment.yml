@@ -16,9 +16,7 @@ jobs:
       - name: create build
         run: npm run build
       - name: "upload artifact"
-        uses: actions/upload-artifact@v3
+        uses: upload-pages-artifact@v1
         with:
           name: github-pages
           path: "dist"
-
-
