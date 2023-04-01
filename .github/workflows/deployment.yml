@@ -14,15 +14,11 @@ jobs:
       - name: Create page not found
         run: cp public/index.html public/404.html
       - name: Copy CNAME
-        run: cp CNAME public/CNAME 2>>/dev/null
+        run: cp CNAME public/CNAME 2 >> /dev/null
       - name: Install and Build
         run: |
           npm ci
           npm run build
-      - name: t1
-        run: pwd
-      - name: t2
-        run: ls -la dist
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
