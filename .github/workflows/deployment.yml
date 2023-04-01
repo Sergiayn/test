@@ -19,6 +19,10 @@ jobs:
         run: npm ci
       - name: Create build
         run: npm run build
+      - name: t1
+        run: pwd
+      - name: t2
+        run: ls -la
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
