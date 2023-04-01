@@ -4,12 +4,12 @@ const routes = [
     {
         path: "/:locale?",
         component: RouterView,
-        beforeEnter: (to, from, next) => {
-            if (to.params.locale === '')
-                window.location.replace("/en")
-
-            next()
-        },
+        // beforeEnter: (to, from, next) => {
+        //     if (to.params.locale === '')
+        //         window.location.replace("/en")
+        //
+        //     next()
+        // },
         children: [
             {
                 path: "",
