@@ -7,7 +7,7 @@
             <div class="banner">
               <h2 v-html='$t("block_home_banner.title")'></h2>
               <h4 v-html='$t("block_home_banner.desc")'></h4>
-              <block-link-app></block-link-app>
+              <block-link-app :sizes="{1200:1,990:1}"></block-link-app>
               <div class="bg_iphone"> </div>
             </div>
           </div>
@@ -76,19 +76,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
-.bg_iphone
-  background: url("@/assets/img/iphones.png") no-repeat 0 center
-  background-size: 650px
-  display: flex
-  height: 650px
-  margin: 160px 0 -250px
-  position: relative
-  width: 600px
-  img
-    margin-left: auto
-    order: 2
-
+<style scoped lang="sass">
 .main-top-bg
   background: url("@/assets/img/bg/bg_1.png") center top no-repeat, url("@/assets/img/bg/bg_2.png") right 50% no-repeat, url("@/assets/img/bg/bg_3.png") right 40% no-repeat, url("@/assets/img/bg/bg_4.png") 45% 45% no-repeat, url("@/assets/img/bg/bg_5.png") 4% 82% no-repeat, url("@/assets/img/bg/bg_6.png") left 85% no-repeat, url("@/assets/img/bg/bg_girl_translucency2.png") 103% 0 no-repeat
   background-size: 164px 101px, 204px 197px, 102px 157px, 308px 298px, 145px 140px, 75px 101px, 640px
@@ -118,7 +106,7 @@ export default {
     .bg_iphone
       background: url("@/assets/img/iphones.png") no-repeat 0 center
       background-size: 550px
-      display: none
+      display: flex
       height: 550px
       margin: -310px 0 -300px 93%
       position: relative
@@ -200,13 +188,10 @@ export default {
     padding-right: 100px
     text-align: center
 
-@media (max-width: 1700px)
-  .bg_iphone
-    height: 600px
-    margin-top: 140px
-    margin-left: -120px
-    background-size: 100%
-    background-position: 50px center
+
+@media (max-width: 1800px)
+  .main-top-bg
+    background-size: 164px 101px, 204px 197px, 102px 157px, 308px 298px, 145px 140px, 75px 101px, 550px
 
 @media (max-width: 1300px)
   .block-about
@@ -224,13 +209,6 @@ export default {
       width: 33.33%
 
 @media (max-width: 1200px)
-  .bg_iphone
-    background-position: left 35%
-    background-size: 85%
-    height: 500px
-    margin-top: 210px
-    margin-left: -100px
-    width: auto
   .main-top-bg
     background-size: 500px
   .main-top
@@ -262,25 +240,17 @@ export default {
 
 @media (max-width: 991px)
   .main-top
-    .banner
-      .bg_iphone
-        display: flex
-        height: 380px
-        width: 400px
-        margin-top: -155px
-        max-width: 500px
-        float: right
-        background-size: 100%
-      .link_app a
-        display: block
-        margin-bottom: 10px
-        margin-right: 0
+    .bg_iphone
+      display: flex
+      height: 380px
+      width: 400px
+      margin-top: -155px
+      max-width: 500px
+      float: right
+      background-size: 100%
 
 @media (max-width: 768px)
-  .bg_iphone img
-    margin-right: -130px
   .main-top-bg
-    background-position: center top,right 50%, right 40%, 45% 45%,4% 82%, left 85%, right bottom
     background-size: 200px
   .main-top
     .banner
@@ -291,9 +261,7 @@ export default {
         max-width: 440px
       h4
         font-size: 20px
-        margin: 0 auto 0 0
-        max-width: 270px
-        padding-bottom: 20px
+        max-width: 300px
       .bg_iphone
         height: 250px
         width: 270px
@@ -314,8 +282,6 @@ export default {
       max-width: 270px
 
 @media (max-width: 575px)
-  .bg_iphone img
-    margin-right: -110px
   .main-top-block
     padding: 0
   .main-top-bg
@@ -327,10 +293,7 @@ export default {
       padding-top: 0
       text-align: center
       h2
-        font-size: 24px
-        line-height: 31px
         max-width: 217px
-        margin: 10px auto
       h4
         margin: 0 auto
         max-width: 270px
@@ -340,8 +303,6 @@ export default {
         height: 235px
         margin-top: 20px
         margin-bottom: -100px
-      .link_app a
-        margin: 5px auto!important
 
   .block-about
     background-image: url('@/assets/img/bg/block2_bg1_1.png'), url('@/assets/img/bg/block2_bg3.png')

@@ -1,4 +1,5 @@
 <template>
+  <change-language></change-language>
   <footer>
     <div class="container">
       <div class="footer-inner">
@@ -14,7 +15,14 @@
             <div class="desc">{{ $t("footer.desc") }}</div>
           </div>
           <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-            <block-link-app :type-prod="2" :footer="true"></block-link-app>
+            <div class="link_app">
+              <a href="https://apps.apple.com/us/app/adblocker-protection/id1587657245" class="link_app_store">
+<!--                <img src="@/assets/img/app_store.png" alt="app store">-->
+              </a>
+              <a href="#https://track-voluum.robocleaner.galaxys.info/click" class="link_app_store_qr" data-toggle="modal" data-target="#modal_appstore_qr_addblocker">
+<!--                <img src="@/assets/img/bg/qr-icon.svg" alt="qr code"> Scan QR code-->
+              </a>
+            </div>
           </div>
         </div>
 
@@ -59,19 +67,19 @@
 </template>
 
 <script>
-import BlockLinkApp from "@/components/BlockLinkApp.vue"
-import {RouterLink} from "vue-router"
+import ChangeLanguage from "@/components/ChangeLanguage.vue";
+import {RouterLink} from "vue-router";
 
 export default {
   name: "MainFooter",
   components: {
-    BlockLinkApp,
+    ChangeLanguage,
     RouterLink
   }
 }
 </script>
 
-<style lang="sass">
+<style scoped lang="sass">
 
 footer
   background-color: #6A6A6A
@@ -156,19 +164,6 @@ footer
       color: white
       font-size: 12px
       font-weight: 500
-  .link_app
-    a
-      height: 27px
-      width: 94px
-      &:first-child
-        margin-right: 15px
-  .link_app_store_qr
-    font-size: 10px
-    font-weight: 500
-    margin-right: 0
-    padding: 3px 4px
-    img
-      height: 70%
 
 .footer-bottom
   padding-bottom: 20px

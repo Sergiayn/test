@@ -1,30 +1,34 @@
 import { createWebHistory, createRouter } from "vue-router";
+import PageContact from "@/views/PageContact.vue";
+import PageHome from "@/views/PageHome.vue";
+import PagePrivacy from "@/views/PagePrivacy.vue";
+import PageTermsOfUse from "@/views/PageTermsOfUse.vue";
 
 const routes = [
     {
         path: "/contact",
         name: "Contact",
-        component: () => import("@/views/PageContact.vue"),
+        component: PageContact,
     },
     {
         path: "/",
         name: "Home",
-        component: () => import("@/views/PageHome.vue"),
+        component: PageHome,
     },
     {
         path: "/privacy",
         name: "Privacy",
-        component: () => import("@/views/PagePrivacy.vue"),
+        component: PagePrivacy,
     },
     {
         path: "/terms-of-use",
         name: "PageTermsOfUse",
-        component: () => import("@/views/PageTermsOfUse.vue"),
+        component: PageTermsOfUse,
     },
     {
         path: '/:pathMatch(.*)*',
         name: 'NotFound',
-        redirect: '/'
+        component: PageHome
     }
 ];
 

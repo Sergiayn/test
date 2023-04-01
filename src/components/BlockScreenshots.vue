@@ -37,7 +37,6 @@ export default {
     ]
     const carousel_conf = {
       settings: {
-        autoplay: 5000,
         itemsToShow: 1,
         wrapAround: true
       },

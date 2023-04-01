@@ -12,25 +12,15 @@
       </div>
     </div>
   </div>
-  <Modal v-model:visible="isVisible"
-         title=""
-         modalClass="modalBlockSubscribe">
-    <div class="desc">
-      Thank you for subscribing to RoboCleaner news!
-    </div>
-  </Modal>
 </template>
 
 <script>
-import BlockLinkApp from "@/components/BlockLinkApp.vue"
-import { Modal } from 'usemodal-vue3'
-import {ref} from "vue";
+import BlockLinkApp from "@/components/BlockLinkApp.vue";
 
 export default {
   name: "BlockSubscribe",
   components: {
-    BlockLinkApp,
-    Modal
+    BlockLinkApp
   },
   methods: {
     subscribeUser() {
@@ -45,18 +35,13 @@ export default {
       }
 
       fetch("https://api.galaxys.info/v1/subscribe", requestOptions)
-          .then(() => {
-            this.isVisible = true
-            this.email = ''
+          .then((response) => {
+            console.log(response)
           })
     }
   },
   data() {
-    let isVisible = ref(false)
-    return {
-      email: '',
-      isVisible
-    }
+    return {email: ''}
   }
 }
 </script>
@@ -100,17 +85,6 @@ export default {
     color: white
     padding: 8px 36px
 
-.modalBlockSubscribe
-  .modal-vue3-body
-    padding: 22px!important
-    .desc
-      font-weight: 600
-      font-size: 34px
-      padding: 70px 0 85px
-      text-align: center
-  .modal-vue3-footer
-    display: none!important
-
 @media (max-width: 1200px)
   .block-subscribe-inner
     padding: 82px
@@ -126,10 +100,6 @@ export default {
       font-size: 28px
     input[type="email"]
       width: 320px
-    .modal-vue3-body
-      .desc
-        font-size: 30px
-        padding: 60px 0 75px
 
 @media (max-width: 768px)
   .block-subscribe-inner
@@ -144,9 +114,6 @@ export default {
       font-size: 20px
     .title
       font-size: 28px
-    .modal-vue3-body
-      .desc
-        font-size: 28px
 
 @media (max-width: 575px)
   .block-subscribe-inner
@@ -159,9 +126,6 @@ export default {
       font-size: 17px
     .form
       margin-bottom: 0
-    .modal-vue3-body
-      .desc
-        font-size: 22px
-        padding: 30px 0 45px
+
 
 </style>
