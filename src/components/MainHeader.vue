@@ -4,7 +4,7 @@
       <div v-if="screenWidth > 768" class="header-desktop">
         <div class="row">
           <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-            <router-link to="/" class="logo">
+            <router-link :to="{name:'Home', params:{locale:$i18n.locale}}" class="logo">
               <img src="@/assets/img/logo.svg" class="img-fluid" alt="RoboCleaner">
               <span>RoboCleaner</span>
             </router-link>
@@ -12,21 +12,22 @@
           <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
             <div class="top-menu">
               <ul>
-                <li><router-link to="/#block_screenshots">{{ $t("header.screenshots") }}</router-link></li>
-                <li><router-link to="/#block_why_robo_cleaner" class="long-a">{{ $t("header.why_robo_cleaner") }}</router-link></li>
-                <li><router-link to="/#block_subscribe">{{ $t("header.subscribe") }}</router-link></li>
-                <li><router-link to="/#block_plans">{{ $t("header.plans") }}</router-link></li>
+                <li><router-link :to="{name:'Home', params:{locale:$i18n.locale}, hash:'#block_screenshots'}">{{ $t("header.screenshots") }}</router-link></li>
+                <li><router-link :to="{name:'Home', params:{locale:$i18n.locale}, hash:'#block_why_robo_cleaner'}" class="long-a">{{ $t("header.why_robo_cleaner") }}</router-link></li>
+                <li><router-link :to="{name:'Home', params:{locale:$i18n.locale}, hash:'#block_subscribe'}">{{ $t("header.subscribe") }}</router-link></li>
+                <li><router-link :to="{name:'Home', params:{locale:$i18n.locale}, hash:'#block_plans'}">{{ $t("header.plans") }}</router-link></li>
                 <li><a href="https://apps.apple.com/us/app/robocleaner/id1603385704" class="download check_download_link">{{ $t("header.download") }}</a></li>
               </ul>
             </div>
           </div>
         </div>
+        <change-language></change-language>
       </div>
       <div v-else class="header-mobile">
-        <a class="logo" href="/">
+        <router-link class="logo" :to="{name:'Home', params:{locale:$i18n.locale}}">
           <img src="@/assets/img/logo.svg" class="img-fluid" alt="RoboCleaner">
           <span>RoboCleaner</span>
-        </a>
+        </router-link>
         <div class="mobile-top-menu">
           <nav class="navbar navbar-dark">
             <button @click="isOpenMobileMenu = !isOpenMobileMenu"
@@ -40,12 +41,13 @@
           </nav>
           <div class="collapse" :class="{show:isOpenMobileMenu}">
             <ul>
-              <li @click="isOpenMobileMenu = false"><router-link to="/#block_screenshots">{{ $t("header.screenshots") }}</router-link></li>
-              <li @click="isOpenMobileMenu = false"><router-link to="/#block_why_robo_cleaner">{{ $t("header.why_robo_cleaner") }}</router-link></li>
-              <li @click="isOpenMobileMenu = false"><router-link to="/#block_subscribe">{{ $t("header.subscribe") }}</router-link></li>
-              <li @click="isOpenMobileMenu = false"><router-link to="/#block_plans">{{ $t("header.plans") }}</router-link></li>
+              <li @click="isOpenMobileMenu = false"><router-link :to="{name:'Home', params:{locale:$i18n.locale}, hash:'#block_screenshots'}">{{ $t("header.screenshots") }}</router-link></li>
+              <li @click="isOpenMobileMenu = false"><router-link :to="{name:'Home', params:{locale:$i18n.locale}, hash:'#block_why_robo_cleaner'}">{{ $t("header.why_robo_cleaner") }}</router-link></li>
+              <li @click="isOpenMobileMenu = false"><router-link :to="{name:'Home', params:{locale:$i18n.locale}, hash:'#block_subscribe'}">{{ $t("header.subscribe") }}</router-link></li>
+              <li @click="isOpenMobileMenu = false"><router-link :to="{name:'Home', params:{locale:$i18n.locale}, hash:'#block_plans'}">{{ $t("header.plans") }}</router-link></li>
               <li><a href="https://apps.apple.com/us/app/robocleaner/id1603385704" class="download check_download_link">{{ $t("header.download") }}</a></li>
             </ul>
+            <change-language></change-language>
           </div>
         </div>
       </div>
@@ -54,6 +56,8 @@
 </template>
 
 <script>
+import ChangeLanguage from "@/components/ChangeLanguage.vue"
+
 export default {
   name: "MainHeader",
   data() {
@@ -75,13 +79,14 @@ export default {
     updateScreenWidth() {
       this.screenWidth = window.innerWidth;
     }
+  },
+  components: {
+    ChangeLanguage
   }
 }
 </script>
 
 <style scoped lang="sass">
-a
-  color: white
 
 header
   background: linear-gradient(89.91deg, #8080E5 -1.36%, #828EE5 11.92%, #849CE4 31.66%, #86AAE4 50.1%, #88B8E4 71.71%, #8AC6E3 88.38%, #8CD4E3 103.19%)
@@ -94,6 +99,8 @@ header
   height: 95px
   width: 100%
   z-index: 10
+  a
+    color: white
 
 .header-desktop
   padding-top: 18px
@@ -133,6 +140,10 @@ header
       border: 1px solid white
       border-radius: 8px
       padding: 11px 20px
+  .change-language
+    position: fixed
+    right: 30px
+    top: 35px
 
 .header-mobile
   display: table
@@ -159,6 +170,8 @@ header
     font-size: 17px
     list-style: none
     padding-right: 0
+  .change-language
+    margin: 0 0 15px 40px
 
 @media (max-width: 992px)
   .header-desktop
@@ -170,6 +183,8 @@ header
         padding: 12px
       .long-a
         padding: 5px 12px
+    .change-language
+      right: 5px
 
 @media (max-width: 768px)
   header

@@ -1,4 +1,8 @@
 const translate = {
+    common: {
+        scan_qr_code: 'Scan QR code',
+        download_on_the: 'Download on the'
+    },
     header: {
         download: "Download",
         plans: "Plans",
@@ -26,7 +30,7 @@ const translate = {
         feature_item_1: "Quick clean up phone",
         feature_item_2: "AdBlocker",
         feature_item_3: "Cleaning events in calendar",
-        feature_item_4: "Deleting Safari cache",
+        feature_item_4: "Checking memory details",
         feature_item_5: "Photos & videos compressing",
         feature_item_6: "Battery life",
         feature_title: "More than phone cleaner",
