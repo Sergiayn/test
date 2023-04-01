@@ -9,7 +9,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: update os
-        run: node -v
+      - name: t1
+        run: ls -la
+      - name: install node modules
+        run: npm install
+      - name: t2
+        run: du -sh *
 
 
