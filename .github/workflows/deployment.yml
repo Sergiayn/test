@@ -22,7 +22,7 @@ jobs:
       - name: t1
         run: pwd
       - name: t2
-        run: ls -la
+        run: ls -la dist
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
