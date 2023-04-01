@@ -9,11 +9,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: t1
-        run: ls -la
+      - name: create 404
+        run: cp public/index.html public/404.html
       - name: install node modules
         run: npm install
-      - name: t2
+      - name: create build
+        run: npm run build
+      - name: t1
         run: du -sh *
 
 
