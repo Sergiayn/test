@@ -20,7 +20,7 @@ jobs:
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build # The folder the action should deploy.
+          folder: dist # The folder the action should deploy.
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
