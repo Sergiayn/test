@@ -19,10 +19,13 @@ jobs:
         run: cp CNAME public/CNAME 2>>/dev/null
       - name: webp-1
         run: |
-          sudo apt update
           sudo apt install webp
           cd src/assets/img/lang/en
-          pwd && cwebp -q 60 iphone.png -o iphone.webp
+          pwd
+          cwebp -q 40 iphone.png -o iphone40.webp
+          cwebp -q 60 iphone.png -o iphone60.webp
+          cwebp -q 80 iphone.png -o iphone80.webp
+          cwebp -q 100 iphone.png -o iphone100.webp
           ls -la
       - name: Install and Build
         run: |
@@ -32,7 +35,10 @@ jobs:
         run: cp dist/index.html dist/404.html
       - name: webp-2
         run: |
-          cp src/assets/img/lang/en/iphone.webp dist/img/iphone.webp
+          cp src/assets/img/lang/en/iphone40.webp dist/img/iphone40.webp
+          cp src/assets/img/lang/en/iphone60.webp dist/img/iphone60.webp
+          cp src/assets/img/lang/en/iphone80.webp dist/img/iphone80.webp
+          cp src/assets/img/lang/en/iphone100.webp dist/img/iphone100.webp
           ls -la dist/img
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
