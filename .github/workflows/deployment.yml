@@ -18,7 +18,12 @@ jobs:
       - name: Copy CNAME
         run: cp CNAME public/CNAME 2>>/dev/null
       - name: webp-1
-        run: sudo apt update && sudo apt install webp && cd src/assets/img/lang/en && pwd && cwebp -q 60 iphone.png -o iphone.webp
+        run: |
+          sudo apt update
+          sudo apt install webp
+          cd src/assets/img/lang/en
+          pwd && cwebp -q 60 iphone.png -o iphone.webp
+          ls -la
       - name: Install and Build
         run: |
           npm ci
@@ -26,7 +31,7 @@ jobs:
       - name: Create page not found
         run: cp dist/index.html dist/404.html
       - name: webp-2 🚀
-        uses: ls -la dist/img
+        run: ls -la dist/img
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
