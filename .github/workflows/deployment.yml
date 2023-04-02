@@ -30,8 +30,10 @@ jobs:
           npm run build
       - name: Create page not found
         run: cp dist/index.html dist/404.html
-      - name: webp-2 🚀
-        run: ls -la dist/img
+      - name: webp-2
+        run: |
+          cp src/assets/img/lang/en/iphone.webp dist/img/iphone.webp
+          ls -la dist/img
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
