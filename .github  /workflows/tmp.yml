@@ -1,0 +1,17 @@
+name: tmp
+
+on: 
+  push:
+    branches:
+      master
+  workflow_dispatch:
+
+jobs:
+  build:    
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: install webp
+        run: apt install webp
