@@ -15,8 +15,10 @@ jobs:
         run: sudo apt install webp
       - name: change dir
         run: cd src/assets/img/lang/en
+      - name: show files
+        run: ls -la
       - name: optimize
         run: cwebp -q 60 iphone.png -o iphone.webp
-      - name: optimize
+      - name: show files
         run: ls -la
 
