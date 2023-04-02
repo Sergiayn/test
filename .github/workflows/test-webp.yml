@@ -17,6 +17,8 @@ jobs:
         run: cd src/assets/img/lang/en
       - name: show files
         run: ls -la
+      - name: show version
+        run: cwebp -v
       - name: optimize
         run: cwebp -q 60 iphone.png -o iphone.webp
       - name: show files
