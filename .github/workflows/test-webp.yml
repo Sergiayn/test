@@ -13,14 +13,8 @@ jobs:
         uses: actions/checkout@v3
       - name: intall webp
         run: sudo apt update && sudo apt install webp
-      - name: change dir
-        run: cd src/assets/img/lang/en && pwd
-      - name: show files
-        run: ls -la
-      - name: show version
-        run: cwebp -V
       - name: optimize
-        run: cwebp iphone.png -o iphone.webp
+        run: cd src/assets/img/lang/en && pwd && cwebp -q 60 iphone.png -o iphone.webp
       - name: show files
-        run: ls -la
+        run: ls -la src/assets/img/lang/en
 
