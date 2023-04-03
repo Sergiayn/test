@@ -13,7 +13,6 @@ import MainFooter from "@/components/MainFooter.vue";
 import MainHeader from "@/components/MainHeader.vue";
 import {RouterView} from "vue-router";
 
-
 export default {
   name: 'App',
   components: {
