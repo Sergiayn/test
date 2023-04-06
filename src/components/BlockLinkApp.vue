@@ -188,32 +188,31 @@ export default {
     a
       width: 130px
     .link_app_store_qr
-      font-size: 15px
+      font-size: 14px
       padding-right: 0
     .link_app_store
-      background-position: 5px center
-      padding-left: 22px
-      padding-top: 3px
+      background-position: 6px center
+      padding-left: 25px
+      padding-top: 4px
       .row_1
-        font-size: 11px
+        font-size: 10px
       .row_2
-        font-size: 17px
+        font-size: 16px
 
 @media (max-width: 575px)
   .link_app
     a
-      height: 30px
+      height: 39px
       margin: 0 4px
-      width: 110px
     .link_app_store_qr
-      font-size: 10px
+      font-size: 13px
     .link_app_store
-      background-position: 7px center
-      padding-left: 14px
-      padding-top: 0
+      background-position: 10px center
+      padding-left: 20px
+      padding-top: 3px
       .row_1
-        font-size: 8px
+        font-size: 9px
       .row_2
-        font-size: 14px
+        font-size: 15px
 
 </style>
