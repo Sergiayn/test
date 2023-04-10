@@ -89,7 +89,7 @@
                             <li><a href="https://apps.apple.com/us/app/robocleaner/id1603385704"
                                    class="download check_download_link">{{ $t("header.download") }}</a></li>
                         </ul>
-                        <change-language></change-language>
+                        <change-language @eventSetLocale="isOpenMobileMenu = false"></change-language>
                     </div>
                 </div>
             </div>
@@ -200,7 +200,7 @@ header
 
 .header-mobile
   display: table
-  padding: 10px 15px 0 15px
+  padding: 0 15px 0 15px
   width: 100%
 
   > div
@@ -211,15 +211,18 @@ header
   .logo
     display: table-cell
     padding-top: 10px
-    padding-bottom: 15px
+    padding-bottom: 5px
 
     img
       height: 30px
 
   .navbar
-    height: 56px
+    height: 46px
+    padding: 0 16px
 
   button
+    border: 0
+    padding: 0 12px
     position: absolute
     right: 0
 
@@ -230,10 +233,14 @@ header
     font-size: 17px
     list-style: none
     padding-right: 0
+    text-align: right
 
   .change-language
-    margin-left: 40px
+    margin-left: auto
+    margin-right: -10px
     margin-bottom: 16px
+    .tooltip-lang_content
+        right: 25px
 
 @media (max-width: 992px)
   .header-desktop
@@ -265,7 +272,7 @@ header
 
 @media (max-width: 575px)
   header
-    padding-top: 5px
+    padding-top: 0
 
   .header-mobile .logo img
     padding-right: 6px

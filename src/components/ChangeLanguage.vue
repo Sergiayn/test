@@ -60,6 +60,7 @@ export default {
             this.$i18n.locale = locale
             this.$router.replace({params: {locale}, hash})
             this.isOpen = false
+            this.$emit('eventSetLocale', locale);
         },
         toggleMenu() {
             if (this.isOverLang === true)
@@ -141,6 +142,7 @@ export default {
       list-style: none
       margin: 0
       padding: 6px 0
+      text-align: left
 
     li
       cursor: pointer

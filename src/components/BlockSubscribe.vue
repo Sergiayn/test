@@ -1,7 +1,9 @@
 <template>
     <div class="block-subscribe" id="block_subscribe">
         <div class="container">
-            <block-link-app></block-link-app>
+            <div class="d-none d-xs-block">
+                <block-link-app></block-link-app>
+            </div>
             <div class="block-subscribe-inner">
                 <div class="title">{{ $t("block_subscribe.title") }}</div>
                 <div class="desc">{{ $t("block_subscribe.desc") }}</div>
@@ -172,10 +174,10 @@ export default {
       padding-top: 40px
 
     .title
-      font-size: 22px
+      font-size: 18px
 
     .desc, form
-      font-size: 17px
+      font-size: 15px
 
     .form
       margin-bottom: 0
