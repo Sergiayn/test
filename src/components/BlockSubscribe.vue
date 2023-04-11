@@ -76,7 +76,7 @@ export default {
 .block-subscribe-inner
   max-width: 750px
   margin: auto
-  padding: 50px 0 115px
+  padding: 64px 0
   text-align: center
 
   .title
@@ -168,7 +168,7 @@ export default {
 
 @media (max-width: 575px)
   .block-subscribe-inner
-    padding: 30px 0 0
+    padding: 40px 0 0
 
     .link_app
       padding-top: 40px
@@ -179,8 +179,8 @@ export default {
     .desc, form
       font-size: 15px
 
-    .form
-      margin-bottom: 0
+    form
+      margin-bottom: 30px
 
     .modal-vue3-body
       .desc

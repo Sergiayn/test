@@ -38,6 +38,7 @@ export default {
         const isOverLangContent = ref(false)
         const isOverLangLabel = ref(false)
         return {
+            screenWidth: 0,
             locale: this.$i18n.locale,
             isOpen,
             isOverLang,
@@ -45,7 +46,19 @@ export default {
             isOverLangLabel
         }
     },
+    mounted() {
+        this.updateScreenWidth();
+        this.onScreenResize();
+    },
     methods: {
+        onScreenResize() {
+            window.addEventListener("resize", () => {
+                this.updateScreenWidth();
+            });
+        },
+        updateScreenWidth() {
+            this.screenWidth = window.innerWidth;
+        },
         getNameLocale(locale) {
             const names = {
                 en: 'English',
@@ -66,10 +79,15 @@ export default {
             if (this.isOverLang === true)
                 this.isOpen = true
             else {
-                setTimeout(() => {
+                if (this.screenWidth < 575) {
                     if (false === this.isOverLangContent && false === this.isOverLangLabel)
                         this.isOpen = false
-                }, 1000)
+                } else {
+                    setTimeout(() => {
+                        if (false === this.isOverLangContent && false === this.isOverLangLabel)
+                            this.isOpen = false
+                    }, 1000)
+                }
             }
         }
     },

@@ -59,7 +59,7 @@
                                 data-toggle="collapse"
                                 aria-expanded="false"
                                 aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
+                            <span class="navbar-toggler-icon" :class="{active:isOpenMobileMenu}"></span>
                         </button>
                     </nav>
                     <div class="collapse" :class="{show:isOpenMobileMenu}">
@@ -222,18 +222,26 @@ header
 
   button
     border: 0
-    padding: 0 12px
+    padding: 0
     position: absolute
     right: 0
 
     &:focus
       outline: none
-
+  .navbar-toggler-icon
+      background-image: url("@/assets/img/header_menu_btn.svg")
+      background-repeat: no-repeat
+      background-position: center center
+      background-size: auto 15px
+      &.active
+        background-image: url("@/assets/img/header_menu_btn_active.svg")
   ul
     font-size: 17px
     list-style: none
-    padding-right: 0
+    padding: 0
     text-align: right
+  li
+    padding: 5px 0
 
   .change-language
     margin-left: auto
