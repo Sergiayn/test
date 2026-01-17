@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imigrační konzultant – Česká republika</title>
+  <style>
+    :root {
+      --bg: #f7f4f1;
+      --bg-soft: #fbf9f7;
+      --accent: #d19b7d;
+      --accent-soft: #f0d4c3;
+      --text: #2b2b30;
+      --text-soft: #555766;
+      --border-soft: #e1d6cf;
+      --white: #ffffff;
+      --shadow-soft: 0 18px 45px rgba(15, 20, 30, 0.08);
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --transition: 180ms ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #fffaf5 0, #f7f4f1 45%, #f1ede8 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: conic-gradient(from 210deg, #f0d4c3, #d19b7d, #a87e63, #f6e1d4, #f0d4c3);
+      padding: 2px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .brand-mark-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      color: #a46b4a;
+      font-size: 0.9rem;
+    }
+
+    .brand-text-title {
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .brand-text-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .nav-link {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: var(--transition);
+      background: transparent;
+    }
+
+    .nav-link:hover {
+      border-color: var(--border-soft);
+      background: rgba(255,255,255,0.7);
+    }
+
+    .nav-cta {
+      background: #2e2a3b;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: none;
+      font-size: 0.85rem;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(15, 20, 30, 0.18);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+    }
+
+    .nav-cta span {
+      font-size: 1.1rem;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 32px rgba(15, 20, 30, 0.25);
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      padding: 4px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.8);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+      gap: 4px;
+    }
+
+    .lang-btn {
+      border-radius: 999px;
+      border: none;
+      padding: 4px 10px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-soft);
+      transition: var(--transition);
+      min-width: 40px;
+    }
+
+    .lang-btn.active {
+      background: #2e2a3b;
+      color: #fff;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+      gap: 32px;
+      padding: 28px 24px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(251,246,242,0.9));
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(209,155,125,0.16) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(119,105,173,0.12) 0, transparent 55%);
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .hero-left,
+    .hero-right {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 3vw, 2.4rem);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .hero-title span {
+      color: #a46b4a;
+    }
+
+    .hero-subtitle {
+      color: var(--text-soft);
+      font-size: 0.98rem;
+      max-width: 34rem;
+      margin-bottom: 18px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .badge {
+      font-size: 0.78rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(255,255,255,0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #a46b4a;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .btn-primary {
+      border: none;
+      border-radius: 999px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #2e2a3b, #403a56);
+      color: #fff;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 14px 30px rgba(25, 21, 41, 0.3);
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(25, 21, 41, 0.36);
+    }
+
+    .btn-ghost {
+      border-radius: 999px;
+      padding: 9px 16px;
+      border: 1px solid rgba(46,42,59,0.2);
+      background: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-soft);
+      transition: var(--transition);
+    }
+
+    .btn-ghost:hover {
+      background: #fff;
+      border-color: rgba(46,42,59,0.4);
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .hero-note strong {
+      color: #a46b4a;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.95);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 16px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .hero-photo-wrap {
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid rgba(226, 210, 198, 0.8);
+    }
+
+    .hero-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .hero-card-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+      margin-bottom: 8px;
+    }
+
+    .hero-card-list {
+      list-style: none;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      display: grid;
+      gap: 2px;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 8px;
+      margin-top: 8px;
+      font-size: 0.78rem;
+    }
+
+    .hero-metric {
+      border-radius: 16px;
+      padding: 8px 10px;
+      background: var(--bg-soft);
+      border: 1px solid rgba(225,214,207,0.9);
+      display: grid;
+      gap: 2px;
+    }
+
+    .metric-number {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .metric-label {
+      color: var(--text-soft);
+      font-size: 0.72rem;
+    }
+
+    section {
+      scroll-margin-top: 96px;
+    }
+
+    .section-heading {
+      font-size: 1.35rem;
+      margin-bottom: 6px;
+    }
+
+    .section-intro {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      max-width: 36rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(225,214,207,0.9);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.96);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(225,214,207,0.9);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.06);
+      padding: 18px 18px 16px;
+    }
+
+    .card-title {
+      font-size: 1.02rem;
+      margin-bottom: 6px;
+    }
+
+    .card-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin-bottom: 12px;
+    }
+
+    .card-list {
+      list-style: none;
+      display: grid;
+      gap: 6px;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      margin-bottom: 4px;
+    }
+
+    .card-list strong {
+      color: var(--text);
+    }
+
+    .card-note {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      margin-top: 6px;
+    }
+
+    .visas-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .visa-card {
+      background: rgba(255,255,255,0.96);
+      border-radius: 22px;
+      border: 1px solid rgba(225,214,207,0.9);
+      padding: 14px 14px 13px;
+      display: grid;
+      gap: 8px;
+      font-size: 0.86rem;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.05);
+    }
+
+    .visa-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    .visa-name {
+      font-weight: 600;
+    }
+
+    .visa-purpose {
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .visa-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .visa-meta span {
+      padding: 4px 7px;
+      border-radius: 999px;
+      background: #fbf9f7;
+      border: 1px solid rgba(225,214,207,0.8);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 14px;
+    }
+
+    .step {
+      background: rgba(255,255,255,0.95);
+      border-radius: 18px;
+      border: 1px dashed rgba(215,200,190,0.9);
+      padding: 12px 12px 11px;
+      font-size: 0.85rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .step-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #2e2a3b;
+      color: #fff;
+      font-size: 0.78rem;
+      margin-bottom: 6px;
+    }
+
+    .step-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 8px;
+      font-size: 0.86rem;
+    }
+
+    .faq-item {
+      background: rgba(255,255,255,0.96);
+      border-radius: 18px;
+      padding: 10px 12px 9px;
+      border: 1px solid rgba(225,214,207,0.9);
+    }
+
+    .faq-q {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .faq-a {
+      color: var(--text-soft);
+      font-size: 0.86rem;
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .contact-details {
+      background: linear-gradient(145deg, #2e2a3b, #494161);
+      color: #fdf9f5;
+      border-radius: var(--radius-lg);
+      padding: 20px 20px 18px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+      display: grid;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-details::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(255,255,255,0.12) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(240,212,195,0.25) 0, transparent 55%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .contact-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 6px;
+    }
+
+    .contact-main-line {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .contact-subtext {
+      font-size: 0.88rem;
+      opacity: 0.9;
+      margin-bottom: 10px;
+    }
+
+    .contact-list {
+      list-style: none;
+      font-size: 0.86rem;
+      display: grid;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+
+    .contact-list span {
+      opacity: 0.85;
+    }
+
+    .contact-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.78rem;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.35);
+      margin-top: 4px;
+    }
+
+    .contact-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #8be6b1;
+    }
+
+    .contact-form {
+      background: rgba(255,255,255,0.96);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      border: 1px solid rgba(225,214,207,0.9);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.06);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px 14px;
+      margin-bottom: 10px;
+    }
+
+    .form-field {
+      display: grid;
+      gap: 5px;
+      font-size: 0.8rem;
+    }
+
+    label {
+      color: var(--text-soft);
+    }
+
+    input,
+    select,
+    textarea {
+      border-radius: 999px;
+      border: 1px solid rgba(215,200,190,0.9);
+      padding: 8px 11px;
+      font: inherit;
+      outline: none;
+      background: #fbf9f7;
+      transition: var(--transition);
+      width: 100%;
+    }
+
+    textarea {
+      border-radius: 18px;
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #a46b4a;
+      box-shadow: 0 0 0 1px rgba(164,107,74,0.18);
+      background: #fff;
+    }
+
+    .form-footnote {
+      font-size: 0.75rem;
+      color: var(--text-soft);
+      margin-top: 4px;
+    }
+
+    .form-submit-row {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer {
+      margin-top: 32px;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .footer a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      opacity: 0.85;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .hero-card {
+        max-width: 320px;
+        margin: 0 auto 6px;
+      }
+
+      .contact,
+      .two-col {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .hero {
+        padding: 20px 16px;
+        border-radius: 20px;
+      }
+
+      .page {
+        padding-inline: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-mark">
+          <div class="brand-mark-inner">CZ</div>
+        </div>
+        <div>
+          <div class="brand-text-title">Immigration consulting</div>
+          <div class="brand-text-name">My Czech Way – Tereza Novák Vejborová</div>
+        </div>
+      </div>
+
+      <nav>
+        <button class="nav-link" data-scroll="#about">O mně</button>
+        <button class="nav-link" data-scroll="#services">Služby</button>
+        <button class="nav-link" data-scroll="#visas">Typy víz</button>
+        <button class="nav-link" data-scroll="#process">Jak spolupráce probíhá</button>
+        <button class="nav-link" data-scroll="#contact">Kontakt</button>
+
+        <div class="lang-switcher" aria-label="Přepnout jazyk">
+          <button class="lang-btn active" data-lang-switch="cs">CZ</button>
+          <button class="lang-btn" data-lang-switch="en">EN</button>
+        </div>
+
+        <button class="nav-cta" data-scroll="#contact">
+          <span>●</span>
+          <span>Rezervovat konzultaci</span>
+        </button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Czech content -->
+      <div data-lang="cs">
+        <section class="hero" id="top">
+          <div class="hero-left">
+            <div class="eyebrow">Víza & pobyty v České republice</div>
+            <h1 class="hero-title">
+              Imigrační konzultantka pro <span>klidnou cestu</span> k životu v&nbsp;Česku
+            </h1>
+            <p class="hero-subtitle">
+              Pomáhám cizincům a jejich rodinám zorientovat se v české vízové džungli, připravit
+              správné dokumenty a podat žádost bez zbytečného stresu – ať už žádáte v ČR, nebo na ambasádě.
+            </p>
+
+            <div class="hero-badges">
+              <div class="badge">
+                <span class="badge-dot"></span>
+                Individuální přístup ke každému případu
+              </div>
+              <div class="badge">
+                Práce s aktuálními informacemi ministerstev
+              </div>
+              <div class="badge">
+                Konzultace online i osobně v ČR
+              </div>
+            </div>
+
+            <div class="hero-cta-row">
+              <button class="btn-primary" data-scroll="#contact">
+                <span>→</span>
+                <span>Domluvit si konzultaci</span>
+              </button>
+              <button class="btn-ghost" data-scroll="#visas">
+                <span>ℹ</span>
+                <span>Přehled všech typů víz a pobytů</span>
+              </button>
+            </div>
+
+            <p class="hero-note">
+              <strong>Tip:</strong> Na první schůzce společně projdeme vaši situaci a vybereme nejvhodnější vízový typ.
+            </p>
+          </div>
+
+          <div class="hero-right">
+            <article class="hero-card" aria-label="Vizitka konzultantky">
+              <div class="hero-photo-wrap">
+                <img class="hero-photo" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80" alt="Portrét konzultantky v jemných barvách" />
+              </div>
+              <div>
+                <div class="hero-card-title">Tereza Novák Vejborová</div>
+                <div class="hero-card-subtitle">Imigrační konzultantka pro Českou republiku</div>
+                <ul class="hero-card-list">
+                  <li>• Víza, dlouhodobé pobyty a zaměstnanecké karty</li>
+                  <li>• Rodinné sloučení, studenti, podnikání</li>
+                  <li>• Komunikace s úřady & příprava podkladů</li>
+                </ul>
+              </div>
+            </article>
+
+            <div class="hero-metrics">
+              <div class="hero-metric">
+                <div class="metric-number">1 : 1</div>
+                <div class="metric-label">Osobní péče – jsem s vámi od první otázky až po vydání karty</div>
+              </div>
+              <div class="hero-metric">
+                <div class="metric-number">CZ / EN</div>
+                <div class="metric-label">Konzultace v češtině nebo angličtině, dle toho, co je vám pohodlnější</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about">
+          <h2 class="section-heading">Kdo vám pomůže projít českou migrací v klidu</h2>
+          <p class="section-intro">
+            Jsem nezávislá imigrační konzultantka se zaměřením na pobyty v České republice. Kombinuji
+            praktickou zkušenost z reálných případů s aktuálními informacemi z Ministerstva vnitra,
+            zahraničních věcí a dalších úřadů.
+          </p>
+
+          <div class="two-col">
+            <div>
+              <div class="pill-row">
+                <span class="pill">Třetizemci (non‑EU)</span>
+                <span class="pill">Rodiny občanů EU</span>
+                <span class="pill">Zaměstnanci & zaměstnavatelé</span>
+                <span class="pill">Studenti & podnikatelé</span>
+              </div>
+
+              <article class="card">
+                <h3 class="card-title">Co ode mě můžete čekat</h3>
+                <p class="card-subtitle">
+                  Mojí rolí není &bdquo;dostat vás za každou cenu&ldquo; do ČR, ale otevřeně vysvětlit
+                  možnosti, rizika a najít pro vás realistické řešení.
+                </p>
+                <ul class="card-list">
+                  <li><strong>Vysvětlení možností</strong> – jaký typ pobytu je pro vás nejvhodnější a proč.</li>
+                  <li><strong>Checklist dokumentů</strong> – přesný seznam, co je potřeba, včetně překladu a ověření.</li>
+                  <li><strong>Kontrola formulářů</strong> – společně projdeme, co podepisujete a o co žádáte.</li>
+                  <li><strong>Podpora v průběhu řízení</strong> – jak reagovat na výzvy, doplnění a rozhodnutí úřadu.</li>
+                </ul>
+                <p class="card-note">
+                  Nejsem státní instituce – víza a pobyty vydává vždy jen příslušný úřad. Pomohu vám ale připravit vše tak,
+                  aby úředníkům zbylo co nejméně otázek.
+                </p>
+              </article>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">Typické situace, se kterými pomáhám</h3>
+              <ul class="card-list">
+                <li>✅ Partner / manželka je občan EU a chcete spolu žít v ČR.</li>
+                <li>✅ Máte nabídku práce v ČR a potřebujete zaměstnaneckou kartu.</li>
+                <li>✅ Studujete v ČR a řešíte prodloužení dlouhodobého pobytu.</li>
+                <li>✅ Chcete v ČR podnikat a potřebujete vhodný typ pobytu.</li>
+                <li>✅ Jste zde několik let a zvažujete trvalý pobyt.</li>
+              </ul>
+              <p class="card-note">
+                Pokud si nejste jistí, do které kategorie spadáte, napište mi přes formulář – stačí stručně popsat
+                vaši situaci a země, se kterých se účastníci žádosti pocházejí.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="services">
+          <h2 class="section-heading">Jaké služby nabízím</h2>
+          <p class="section-intro">
+            Vyberte si, jak moc chcete být do procesu zapojeni. Můžete jen konzultovat a podání zvládnout
+            sami, nebo mi předat většinu starostí.
+          </p>
+
+          <div class="two-col">
+            <article class="card">
+              <h3 class="card-title">Individuální konzultace</h3>
+              <p class="card-subtitle">Ideální, pokud si nejste jistí, odkud začít, nebo máte konkrétní otázky.</p>
+              <ul class="card-list">
+                <li>• Analýza vaší situace a cílů (online nebo osobně).</li>
+                <li>• Vysvětlení vhodných typů víz a pobytů.</li>
+                <li>• Přehled základních podmínek a reálných termínů.</li>
+                <li>• Stručný písemný souhrn po konzultaci.</li>
+              </ul>
+              <p class="card-note">Konzultace je bez závazku – po schůzce se sami rozhodnete, zda chcete pokračovat.</p>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Kompletní podpora &bdquo;na klíč&ldquo;</h3>
+              <p class="card-subtitle">Vhodné, pokud nemáte kapacitu sledovat zákony a komunikovat s úřady.</p>
+              <ul class="card-list">
+                <li>• Detailní checklist dokumentů pro váš případ.</li>
+                <li>• Koordinace překladů, ověření a termínů.</li>
+                <li>• Kontrola žádosti před podáním.</li>
+                <li>• Průběžná podpora do vydání rozhodnutí (e‑mailem / telefonicky).</li>
+              </ul>
+              <p class="card-note">Rozsah spolupráce vždy domlouváme předem – víte dopředu, s čím přesně vám pomohu.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="visas">
+          <h2 class="section-heading">Přehled víz a pobytů, které mohu pomoci řešit</h2>
+          <p class="section-intro">
+            Níže najdete základní přehled nejčastějších typů víz a pobytových oprávnění v České republice.
+            U každého typu vám vysvětlím, zda je vhodný pro vaši situaci, a co je potřeba k žádosti.
+          </p>
+
+          <div class="visas-grid">
+            <article class="visa-card">
+              <div class="visa-tag">Krátkodobý pobyt</div>
+              <div class="visa-name">Krátkodobé (schengenské) vízum – do 90 dní</div>
+              <p class="visa-purpose">Turistika, návštěva rodiny, krátké obchodní cesty.</p>
+              <div class="visa-meta">
+                <span>Podání: zpravidla ambasáda</span>
+                <span>Délka pobytu: do 90 dní v Schengenu</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Dlouhodobé vízum</div>
+              <div class="visa-name">Dlouhodobé vízum – nad 90 dní</div>
+              <p class="visa-purpose">Pobyt v ČR na několik měsíců, často první krok před dlouhodobým pobytem.</p>
+              <div class="visa-meta">
+                <span>Hlavní účely: podnikání, studium, ostatní</span>
+                <span>Podání: zpravidla ambasáda ČR</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Dlouhodobý pobyt</div>
+              <div class="visa-name">Dlouhodobý pobyt za účelem zaměstnání – zaměstnanecká karta</div>
+              <p class="visa-purpose">Spojuje povolení k pobytu a práci pro konkrétní pracovní pozici.</p>
+              <div class="visa-meta">
+                <span>Pro: státní příslušníky třetích zemí</span>
+                <span>Podání: ambasáda nebo za podmínek i v ČR</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Dlouhodobý pobyt</div>
+              <div class="visa-name">Modrá karta (Blue Card)</div>
+              <p class="visa-purpose">Vysoce kvalifikované zaměstnání s vyšším příjmem a výhodami pro rodinu.</p>
+              <div class="visa-meta">
+                <span>Pro: vysoce kvalifikované zaměstnance</span>
+                <span>Možnost: jednodušší přechody v rámci EU</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Dlouhodobý pobyt</div>
+              <div class="visa-name">Dlouhodobý pobyt za účelem studia</div>
+              <p class="visa-purpose">Studium na vysoké škole nebo jiné akreditované instituci v ČR.</p>
+              <div class="visa-meta">
+                <span>Pro: studenty ze třetích zemí</span>
+                <span>Možnosti: prodloužení přímo na území ČR</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Dlouhodobý pobyt</div>
+              <div class="visa-name">Dlouhodobý pobyt za účelem podnikání / investice</div>
+              <p class="visa-purpose">Pro ty, kteří chtějí v ČR podnikat nebo investovat.</p>
+              <div class="visa-meta">
+                <span>Pro: OSVČ, společníky, investory</span>
+                <span>Vyšší nároky na ekonomickou aktivitu</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Dlouhodobý pobyt</div>
+              <div class="visa-name">Rodinné sloučení – dlouhodobý pobyt</div>
+              <p class="visa-purpose">Spojení rodiny v ČR (partner, děti, někdy další příbuzní).</p>
+              <div class="visa-meta">
+                <span>Pro: rodinné příslušníky cizinců s pobytem v ČR</span>
+                <span>Často možnost podat v zahraničí i v ČR</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Dlouhodobý pobyt</div>
+              <div class="visa-name">Pobyt za účelem vědeckého výzkumu</div>
+              <p class="visa-purpose">Pro výzkumníky a akademiky působící v českých institucích.</p>
+              <div class="visa-meta">
+                <span>Pro: výzkumné pracovníky</span>
+                <span>Specifické smlouvy s institucí</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Dlouhodobý pobyt</div>
+              <div class="visa-name">Pobyt za účelem hledání zaměstnání / podnikání</div>
+              <p class="visa-purpose">Navazuje na ukončené studium nebo výzkum v ČR.</p>
+              <div class="visa-meta">
+                <span>Pro: absolventy a výzkumníky</span>
+                <span>Časově omezený, bez možnosti prodloužení</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">EU občané</div>
+              <div class="visa-name">Přechodný pobyt občana EU a rodinných příslušníků</div>
+              <p class="visa-purpose">Registrace pobytu občanů EU a jejich rodin při pobytu delším než 3 měsíce.</p>
+              <div class="visa-meta">
+                <span>Pro: občany EU a jejich rodiny</span>
+                <span>Jednodušší podmínky než u třetizemců</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Trvalý pobyt</div>
+              <div class="visa-name">Trvalý pobyt v ČR</div>
+              <p class="visa-purpose">Stabilní status po dlouhodobém pobytu, často po 5 letech.</p>
+              <div class="visa-meta">
+                <span>Pro: cizince s delším legálním pobytem</span>
+                <span>Výhody: jistota, jednodušší podmínky pro rodinu</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Specifické režimy</div>
+              <div class="visa-name">Sezonní zaměstnání, vnitropodnikové přesuny (ICT) a další</div>
+              <p class="visa-purpose">Speciální typy povolení pro specifické profese a projekty.</p>
+              <div class="visa-meta">
+                <span>Pro: vybrané profese a zaměstnavatele</span>
+                <span>Odlišné podmínky a délka platnosti</span>
+              </div>
+            </article>
+          </div>
+
+          <p class="card-note" style="margin-top:16px; max-width:48rem;">
+            Konkrétní podmínky (poplatky, termíny, nutné dokumenty) se mohou měnit a liší se podle státní příslušnosti,
+            účelu pobytu i místa podání žádosti. V rámci spolupráce vždy pracuji s aktuálními informacemi z oficiálních
+            zdrojů (Ministerstvo vnitra, Ministerstvo zahraničních věcí, portál občana apod.).
+          </p>
+        </section>
+
+        <section id="process">
+          <h2 class="section-heading">Jak spolupráce obvykle probíhá</h2>
+          <p class="section-intro">
+            Každý případ je jiný, ale rámcově se budeme držet těchto kroků. Díky tomu vždy víte,
+            co se právě děje a co je další krok.
+          </p>
+
+          <div class="steps">
+            <article class="step">
+              <div class="step-number">1</div>
+              <div class="step-title">Úvodní nezávazný kontakt</div>
+              <p>Krátce mi popíšete vaši situaci přes formulář nebo e‑mail. Ověřím, zda vám umím reálně pomoci.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">2</div>
+              <div class="step-title">První konzultace</div>
+              <p>Projdeme vaše plány, možnosti a rizika. Navrhnu nejvhodnější typ pobytu a postup.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">3</div>
+              <div class="step-title">Checklist & příprava dokumentů</div>
+              <p>Dostanete přehled dokumentů a praktické instrukce, jak je získat a připravit.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">4</div>
+              <div class="step-title">Kontrola žádosti</div>
+              <p>Zkontroluji formuláře a podklady před podáním, aby vše dávalo úřadu smysl.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">5</div>
+              <div class="step-title">Podání & průběh řízení</div>
+              <p>Vysvětlím, co čekat po podání, jak reagovat na výzvy a jak sledovat stav řízení.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">6</div>
+              <div class="step-title">Vyřízení a další kroky</div>
+              <p>Po vydání víza / karty probereme, jaké povinnosti máte dál (hlášení, pojištění, prodloužení).</p>
+            </article>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-heading">Časté otázky klientů</h2>
+          <div class="faq-list">
+            <article class="faq-item">
+              <div class="faq-q">Můžete za mě podat žádost nebo rozhodnout o vízu?</div>
+              <div class="faq-a">Ne. Žádost vždy podává žadatel a o výsledku rozhoduje pouze příslušný úřad. Já vám pomáhám vše připravit a zorientovat se v požadavcích.</div>
+            </article>
+            <article class="faq-item">
+              <div class="faq-q">Liší se postup podle mé státní příslušnosti?</div>
+              <div class="faq-a">Ano. Některé státy mají speciální režimy nebo omezené termíny na ambasádách. I proto vždy pracujeme s informacemi vztaženými přímo k vaší zemi.</div>
+            </article>
+            <article class="faq-item">
+              <div class="faq-q">Je možné řešit vše online?</div>
+              <div class="faq-a">Většina konzultací a přípravy dokumentů může proběhnout online. V určitých krocích je ale nutná osobní účast na úřadě nebo ambasádě.</div>
+            </article>
+          </div>
+        </section>
+
+        <section id="contact">
+          <h2 class="section-heading">Ozvěte se – podíváme se na váš případ</h2>
+          <p class="section-intro">
+            Napište mi stručně, odkud jste, jaký typ pobytu řešíte a v jaké jste fázi.
+            Ozvu se vám zpět s návrhem dalšího postupu a termíny pro konzultaci.
+          </p>
+
+          <div class="contact">
+            <aside class="contact-details">
+              <div class="contact-inner">
+                <div class="contact-label">Kontakt</div>
+                <div class="contact-main-line">My Czech Way – imigrační konzultace</div>
+                <p class="contact-subtext">Konzultace online (video call) nebo osobně na území České republiky po předchozí domluvě.</p>
+
+                <ul class="contact-list">
+                  <li><strong>E‑mail:</strong> <span>info@myczechway.com</span></li>
+                  <li><strong>Telefon / WhatsApp:</strong> <span>+420 000 000 000</span></li>
+                  <li><strong>Jazyky:</strong> <span>čeština, angličtina</span></li>
+                </ul>
+
+                <div class="contact-badge">
+                  <span class="contact-badge-dot"></span>
+                  <span>K dispozici jsou také večerní online termíny.</span>
+                </div>
+              </div>
+            </aside>
+
+            <form class="contact-form" action="#" method="post">
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="name">Jméno a příjmení *</label>
+                  <input type="text" id="name" name="name" placeholder="Vaše jméno" required />
+                </div>
+                <div class="form-field">
+                  <label for="email">E‑mail *</label>
+                  <input type="email" id="email" name="email" placeholder="you@email.com" required />
+                </div>
+                <div class="form-field">
+                  <label for="phone">Telefon / WhatsApp</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+420…" />
+                </div>
+                <div class="form-field">
+                  <label for="nationality">Státní příslušnost *</label>
+                  <input type="text" id="nationality" name="nationality" placeholder="Např. Ukrajina, Filipíny…" required />
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="visa-type">Co řešíte? *</label>
+                  <select id="visa-type" name="visa-type" required>
+                    <option value="">Vyberte možnost…</option>
+                    <option value="employee-card">Zaměstnanecká karta / práce v ČR</option>
+                    <option value="family">Rodinné sloučení</option>
+                    <option value="study">Studium v ČR</option>
+                    <option value="business">Podnikání / OSVČ / investice</option>
+                    <option value="eu-family">Rodinný příslušník občana EU</option>
+                    <option value="permanent">Trvalý pobyt</option>
+                    <option value="other">Jiné / není jisté</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="where">Kde chcete žádat?</label>
+                  <select id="where" name="where">
+                    <option value="">Zatím nevím</option>
+                    <option value="embassy">Na ambasádě v zahraničí</option>
+                    <option value="czechia">Na území ČR</option>
+                    <option value="both">Je možné obojí, potřebuji poradit</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field" style="margin-top:8px;">
+                <label for="message">Stručný popis vaší situace *</label>
+                <textarea id="message" name="message" required placeholder="Např. Jsem z…, v ČR jsem již 2 roky na vízum za účelem…, nyní chci…"></textarea>
+              </div>
+
+              <div class="form-submit-row">
+                <button type="submit" class="btn-primary">
+                  <span>✉</span>
+                  <span>Odeslat poptávku na konzultaci</span>
+                </button>
+                <p class="form-footnote">
+                  Odesláním formuláře souhlasíte se zpracováním údajů za účelem odpovědi na váš dotaz.
+                </p>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <span>© <span id="year-cs"></span> My Czech Way – imigrační konzultace</span>
+          <span>Informace na webu mají obecný charakter a nenahrazují individuální právní poradenství.</span>
+        </footer>
+      </div>
+
+      <!-- English content -->
+      <div data-lang="en" style="display:none;">
+        <section class="hero" aria-label="Immigration consulting in Czechia">
+          <div class="hero-left">
+            <div class="eyebrow">Visas & residence in Czechia</div>
+            <h1 class="hero-title">
+              Immigration consultant for a <span>smooth journey</span> to life in the Czech Republic
+            </h1>
+            <p class="hero-subtitle">
+              I help expats and their families navigate Czech immigration rules, prepare the right documents
+              and submit applications with confidence – whether you apply in Czechia or at an embassy abroad.
+            </p>
+
+            <div class="hero-badges">
+              <div class="badge">
+                <span class="badge-dot"></span>
+                Tailor‑made support for your case
+              </div>
+              <div class="badge">
+                Working with up‑to‑date official information
+              </div>
+              <div class="badge">
+                Online and in‑person consultations</div>
+            </div>
+
+            <div class="hero-cta-row">
+              <button class="btn-primary" data-scroll="#contact">
+                <span>→</span>
+                <span>Book a consultation</span>
+              </button>
+              <button class="btn-ghost" data-scroll="#visas">
+                <span>ℹ</span>
+                <span>Overview of visa & residence types</span>
+              </button>
+            </div>
+
+            <p class="hero-note">
+              <strong>Good to know:</strong> During our first call we clarify your options and choose the most suitable permit type.
+            </p>
+          </div>
+
+          <div class="hero-right">
+            <article class="hero-card">
+              <div class="hero-photo-wrap">
+                <img class="hero-photo" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80" alt="Portrait of a consultant" />
+              </div>
+              <div>
+                <div class="hero-card-title">Tereza Novák Vejborová</div>
+                <div class="hero-card-subtitle">Immigration consultant for the Czech Republic</div>
+                <ul class="hero-card-list">
+                  <li>• Visas, long‑term residence, employee cards</li>
+                  <li>• Family reunification, students, business</li>
+                  <li>• Dealing with authorities & application check</li>
+                </ul>
+              </div>
+            </article>
+
+            <div class="hero-metrics">
+              <div class="hero-metric">
+                <div class="metric-number">1 : 1</div>
+                <div class="metric-label">Personal support from the first question to the final decision</div>
+              </div>
+              <div class="hero-metric">
+                <div class="metric-number">CZ / EN</div>
+                <div class="metric-label">Consultations available in Czech and English</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="about-en">
+          <h2 class="section-heading">Who I am & how I work</h2>
+          <p class="section-intro">
+            I am an independent immigration consultant focused on residence in the Czech Republic.
+            I combine day‑to‑day experience from real cases with fresh information from Czech authorities.
+          </p>
+
+          <div class="two-col">
+            <div>
+              <div class="pill-row">
+                <span class="pill">Non‑EU nationals</span>
+                <span class="pill">EU family members</span>
+                <span class="pill">Employees & employers</span>
+                <span class="pill">Students & entrepreneurs</span>
+              </div>
+
+              <article class="card">
+                <h3 class="card-title">What you can expect</h3>
+                <p class="card-subtitle">
+                  My role is not to promise the impossible, but to clearly explain your options and
+                  help you choose a realistic strategy.
+                </p>
+                <ul class="card-list">
+                  <li><strong>Clear explanation</strong> – which permit fits your situation and why.</li>
+                  <li><strong>Document checklist</strong> – what you need, including translations and legalisation.</li>
+                  <li><strong>Application review</strong> – we go through the forms before you sign and submit.</li>
+                  <li><strong>Ongoing support</strong> – how to react to requests and letters from authorities.</li>
+                </ul>
+                <p class="card-note">
+                  I am not a state authority – visas and residence permits are always issued by the competent
+                  office. My job is to help you prepare a complete, understandable application.
+                </p>
+              </article>
+            </div>
+
+            <div class="card">
+              <h3 class="card-title">Typical situations</h3>
+              <ul class="card-list">
+                <li>✅ Your partner / spouse is an EU citizen and you want to live together in Czechia.</li>
+                <li>✅ You have a job offer in Czechia and need an employee card.</li>
+                <li>✅ You study in Czechia and need to extend your long‑term residence.</li>
+                <li>✅ You want to run a business in Czechia and look for a suitable permit.</li>
+                <li>✅ You have lived here for several years and consider permanent residence.</li>
+              </ul>
+              <p class="card-note">
+                If you are not sure which category you fall into, send me a short message via the form –
+                just describe your situation and nationality.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section id="services-en">
+          <h2 class="section-heading">Services</h2>
+          <p class="section-intro">
+            You can book a one‑off consultation or let me guide you through the whole process.
+          </p>
+
+          <div class="two-col">
+            <article class="card">
+              <h3 class="card-title">Individual consultation</h3>
+              <p class="card-subtitle">Perfect if you are just starting or have specific questions.</p>
+              <ul class="card-list">
+                <li>• Analysis of your situation (online or in person).</li>
+                <li>• Explanation of possible visa & residence options.</li>
+                <li>• Overview of basic conditions and timelines.</li>
+                <li>• Short written summary after the call.</li>
+              </ul>
+              <p class="card-note">After the consultation you decide yourself whether you wish to continue working together.</p>
+            </article>
+
+            <article class="card">
+              <h3 class="card-title">Full support</h3>
+              <p class="card-subtitle">For those who want to minimise stress and paperwork.</p>
+              <ul class="card-list">
+                <li>• Detailed checklist tailored to your case.</li>
+                <li>• Coordination of translations, legalisation and deadlines.</li>
+                <li>• Final review of your application package.</li>
+                <li>• Ongoing support until the decision is issued.</li>
+              </ul>
+              <p class="card-note">The exact scope is always agreed in advance, so you know what is included.</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="visas-en">
+          <h2 class="section-heading">Visa & residence types I can help with</h2>
+          <p class="section-intro">
+            Below is a simplified overview of the main visa and residence categories in Czechia. During
+            our consultation we connect them to your situation and nationality.
+          </p>
+
+          <div class="visas-grid">
+            <article class="visa-card">
+              <div class="visa-tag">Short‑term stay</div>
+              <div class="visa-name">Schengen visa – up to 90 days</div>
+              <p class="visa-purpose">Tourism, family visit, short business trips.</p>
+              <div class="visa-meta">
+                <span>Application: usually at a Czech embassy</span>
+                <span>Stay: up to 90 days in Schengen</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Long‑term visa</div>
+              <div class="visa-name">Long‑term visa – over 90 days</div>
+              <p class="visa-purpose">Several‑month stay in Czechia, often a first step towards long‑term residence.</p>
+              <div class="visa-meta">
+                <span>Main purposes: business, studies, other</span>
+                <span>Application: usually abroad</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Long‑term residence</div>
+              <div class="visa-name">Employee card</div>
+              <p class="visa-purpose">Combines residence and work permit for one specific job position.</p>
+              <div class="visa-meta">
+                <span>For: non‑EU nationals</span>
+                <span>Application: embassy or, in some cases, in Czechia</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Long‑term residence</div>
+              <div class="visa-name">Blue Card</div>
+              <p class="visa-purpose">Highly skilled employment with benefits for family members.</p>
+              <div class="visa-meta">
+                <span>For: highly qualified workers</span>
+                <span>Advantage: easier mobility within the EU</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Long‑term residence</div>
+              <div class="visa-name">Residence for studies</div>
+              <p class="visa-purpose">For students of Czech universities and accredited programmes.</p>
+              <div class="visa-meta">
+                <span>For: non‑EU students</span>
+                <span>Possible extensions in Czechia</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Long‑term residence</div>
+              <div class="visa-name">Residence for business / investment</div>
+              <p class="visa-purpose">For people running a business or investing in Czechia.</p>
+              <div class="visa-meta">
+                <span>For: self‑employed, company owners, investors</span>
+                <span>Higher requirements on real activity</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Long‑term residence</div>
+              <div class="visa-name">Family reunification</div>
+              <p class="visa-purpose">Joining your family member who already resides legally in Czechia.</p>
+              <div class="visa-meta">
+                <span>For: family members of foreigners</span>
+                <span>Application: abroad or, in some cases, in Czechia</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Long‑term residence</div>
+              <div class="visa-name">Residence for research</div>
+              <p class="visa-purpose">For researchers working at Czech institutions.</p>
+              <div class="visa-meta">
+                <span>For: researchers & academics</span>
+                <span>Based on a hosting agreement</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Long‑term residence</div>
+              <div class="visa-name">Job‑seeking / business‑start residence</div>
+              <p class="visa-purpose">For graduates and researchers who finished their programme in Czechia.</p>
+              <div class="visa-meta">
+                <span>For: graduates & researchers</span>
+                <span>Time‑limited, no extension</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">EU citizens</div>
+              <div class="visa-name">Temporary residence of EU citizens and their family</div>
+              <p class="visa-purpose">Registration of stay for EU citizens and their family members.</p>
+              <div class="visa-meta">
+                <span>For: EU citizens and family</span>
+                <span>Simpler conditions than for non‑EU</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Permanent residence</div>
+              <div class="visa-name">Permanent residence in Czechia</div>
+              <p class="visa-purpose">More stable status after several years of legal stay.</p>
+              <div class="visa-meta">
+                <span>For: foreigners with long legal stay</span>
+                <span>Benefits: stability, easier family procedures</span>
+              </div>
+            </article>
+
+            <article class="visa-card">
+              <div class="visa-tag">Special regimes</div>
+              <div class="visa-name">Seasonal work, intra‑company transfer (ICT) & others</div>
+              <p class="visa-purpose">Specific permits for selected professions and projects.</p>
+              <div class="visa-meta">
+                <span>For: specific positions & employers</span>
+                <span>Different rules and validity</span>
+              </div>
+            </article>
+          </div>
+
+          <p class="card-note" style="margin-top:16px; max-width:48rem;">
+            Exact conditions (fees, deadlines, required documents) change over time and depend on your nationality,
+            purpose of stay and place of application. During our cooperation I always work with official, up‑to‑date
+            information from Czech authorities.
+          </p>
+        </section>
+
+        <section id="process-en">
+          <h2 class="section-heading">How we work together</h2>
+          <p class="section-intro">
+            Every case is unique, but we usually follow these steps so that you always know what comes next.
+          </p>
+
+          <div class="steps">
+            <article class="step">
+              <div class="step-number">1</div>
+              <div class="step-title">Initial contact</div>
+              <p>You briefly describe your situation via form or e‑mail. I confirm whether I can realistically help.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">2</div>
+              <div class="step-title">First consultation</div>
+              <p>We clarify your plans, options and risks and choose the most suitable route.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">3</div>
+              <div class="step-title">Checklist & preparation</div>
+              <p>You receive a list of documents and practical tips on how to obtain and prepare them.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">4</div>
+              <div class="step-title">Application review</div>
+              <p>I review your forms and documents before submission so they are clear for the authorities.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">5</div>
+              <div class="step-title">Procedure & communication</div>
+              <p>You know what to expect, how long it may take and how to react to any letters or requests.</p>
+            </article>
+            <article class="step">
+              <div class="step-number">6</div>
+              <div class="step-title">Decision & next steps</div>
+              <p>After approval we go through your duties (registration, insurance, extensions).</p>
+            </article>
+          </div>
+        </section>
+
+        <section id="faq-en">
+          <h2 class="section-heading">Frequently asked questions</h2>
+          <div class="faq-list">
+            <article class="faq-item">
+              <div class="faq-q">Can you submit the application or decide instead of the authorities?</div>
+              <div class="faq-a">No. The application is always submitted by the applicant and only the competent authority can decide. I help you understand the rules and prepare the documents.</div>
+            </article>
+            <article class="faq-item">
+              <div class="faq-q">Does the procedure depend on my nationality?</div>
+              <div class="faq-a">Yes. Some nationalities have specific regimes or limited appointment slots at embassies. That is why we always work with information relevant to your country.</div>
+            </article>
+            <article class="faq-item">
+              <div class="faq-q">Is it possible to handle everything online?</div>
+              <div class="faq-a">Most consultations and preparation can be done online. Some steps, however, always require your physical presence at an office or embassy.</div>
+            </article>
+          </div>
+        </section>
+
+        <section id="contact-en">
+          <h2 class="section-heading">Get in touch</h2>
+          <p class="section-intro">
+            Tell me briefly where you are from, what type of permit you are interested in and in which stage you are now.
+            I will come back to you with the next steps and available slots for a consultation.
+          </p>
+
+          <div class="contact">
+            <aside class="contact-details">
+              <div class="contact-inner">
+                <div class="contact-label">Contact</div>
+                <div class="contact-main-line">My Czech Way – immigration consulting</div>
+                <p class="contact-subtext">Consultations online (video call) or in person in Czechia upon agreement.</p>
+
+                <ul class="contact-list">
+                  <li><strong>E‑mail:</strong> <span>info@myczechway.com</span></li>
+                  <li><strong>Phone / WhatsApp:</strong> <span>+420 000 000 000</span></li>
+                  <li><strong>Languages:</strong> <span>Czech, English</span></li>
+                </ul>
+
+                <div class="contact-badge">
+                  <span class="contact-badge-dot"></span>
+                  <span>Evening online slots are available.</span>
+                </div>
+              </div>
+            </aside>
+
+            <form class="contact-form" action="#" method="post">
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="name-en">Full name *</label>
+                  <input type="text" id="name-en" name="name" placeholder="Your name" required />
+                </div>
+                <div class="form-field">
+                  <label for="email-en">E‑mail *</label>
+                  <input type="email" id="email-en" name="email" placeholder="you@email.com" required />
+                </div>
+                <div class="form-field">
+                  <label for="phone-en">Phone / WhatsApp</label>
+                  <input type="tel" id="phone-en" name="phone" placeholder="+420…" />
+                </div>
+                <div class="form-field">
+                  <label for="nationality-en">Nationality *</label>
+                  <input type="text" id="nationality-en" name="nationality" placeholder="e.g. Ukraine, Philippines…" required />
+                </div>
+              </div>
+
+              <div class="form-grid">
+                <div class="form-field">
+                  <label for="visa-type-en">What do you need help with? *</label>
+                  <select id="visa-type-en" name="visa-type" required>
+                    <option value="">Please choose…</option>
+                    <option value="employee-card">Employee card / work in Czechia</option>
+                    <option value="family">Family reunification</option>
+                    <option value="study">Studies in Czechia</option>
+                    <option value="business">Business / self‑employment / investment</option>
+                    <option value="eu-family">Family member of EU citizen</option>
+                    <option value="permanent">Permanent residence</option>
+                    <option value="other">Other / not sure</option>
+                  </select>
+                </div>
+                <div class="form-field">
+                  <label for="where-en">Where do you plan to apply?</label>
+                  <select id="where-en" name="where">
+                    <option value="">Not sure yet</option>
+                    <option value="embassy">At a Czech embassy abroad</option>
+                    <option value="czechia">Inside Czechia</option>
+                    <option value="both">Both are possible – I need advice</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field" style="margin-top:8px;">
+                <label for="message-en">Short description of your situation *</label>
+                <textarea id="message-en" name="message" required placeholder="For example: I am from…, currently in Czechia on…, I would like to…"></textarea>
+              </div>
+
+              <div class="form-submit-row">
+                <button type="submit" class="btn-primary">
+                  <span>✉</span>
+                  <span>Send request for consultation</span>
+                </button>
+                <p class="form-footnote">
+                  By submitting this form you agree that your data will be used to answer your inquiry.
+                </p>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <footer class="footer">
+          <span>© <span id="year-en"></span> My Czech Way – immigration consulting</span>
+          <span>Information on this website is general and does not replace individual legal advice.</span>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('[data-scroll]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = document.querySelector(btn.getAttribute('data-scroll'));
+        if (target) {
+          window.scrollTo({
+            top: target.getBoundingClientRect().top + window.scrollY - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Language switch
+    var langButtons = document.querySelectorAll('.lang-btn');
+    var langBlocks = document.querySelectorAll('[data-lang]');
+
+    langButtons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        var targetLang = button.getAttribute('data-lang-switch');
+
+        langButtons.forEach(function (b) { b.classList.remove('active'); });
+        button.classList.add('active');
+
+        langBlocks.forEach(function (block) {
+          if (block.getAttribute('data-lang') === targetLang) {
+            block.style.display = '';
+          } else {
+            block.style.display = 'none';
+          }
+        });
+
+        // When switching language, keep the user roughly at the same section by using id mapping
+        var hash = window.location.hash;
+        if (hash) {
+          var target = document.querySelector(hash + (targetLang === 'cs' ? '' : '-en'));
+          if (target) {
+            window.scrollTo({
+              top: target.getBoundingClientRect().top + window.scrollY - 80,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
+    // Footer years
+    var year = new Date().getFullYear();
+    var yc = document.getElementById('year-cs');
+    var ye = document.getElementById('year-en');
+    if (yc) yc.textContent = year;
+    if (ye) ye.textContent = year;
+  </script>
+</body>
+</html>
